@@ -1,0 +1,12 @@
+<div ng-controller="userControl">
+    <div ng-controller="heroControl">
+        <h2>Add a new hero {{curUSer.name}}...</h2>
+        <p style="color:red" ng-repeat="error in errors">{{error}}</p>
+        <form ng-submit="add_hero()">
+            <input type="text" ng-model="newhero.name" placeholder="hero name">
+            <input type="text" ng-model="newhero.power" placeholder="hero power">
+            <input type="submit" name="" value="add hero">
+        </form>
+    </div>
+    
+</div>

@@ -1,0 +1,48 @@
+<div ng-controller="userControl">
+    Welcome {{curUser.name}}!
+    <a href="/logout">Logout?</a>
+    <div ng-controller="heroControl">
+        <a href="#!/addhero">Add a hero</a>
+        <div ng-controller="likeControl">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Power</th>
+                    <th>Likes</th>
+                    <th>Action</th>
+                    <th>Change Status</th>
+                </tr>
+                <tr ng-repeat="hero in all_heroes.data[0]">
+                    <span ng-if="hero.status == 'true'">
+                <td>{{hero.name}}</td>
+                <td>{{hero.power}}</td>
+                <td>{{hero._likes.length}}</td>
+                <td><button ng-click="like(curUser._id, hero._id)">Like/unlike</button></td>
+                <td><button ng-click="status(hero._id)">Change Status</button></td>
+                </span>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Power</th>
+                    <th>Likes</th>
+                    <th>Action</th>
+                    <th>Change Status</th>
+                </tr>
+                <tr ng-repeat="hero in all_heroes.data[1]">
+                    <span ng-if="hero.status != 'true'">
+                <span ng-show>
+                <td>{{hero.name}}</td>
+                <td>{{hero.power}}</td>
+                <td>{{hero._likes.length}}</td>
+                <td><button ng-click="like(curUser._id, hero._id)">Like/unlike</button></td>
+                <td><button ng-click="status(hero._id)">Change Status</button></td>
+                </span>
+                    </span>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
